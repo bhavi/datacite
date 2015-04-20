@@ -1,4 +1,4 @@
-= Datacite
+# Datacite
 
 ### Rails engine
 Engines can be considered miniature applications that provide functionality to their host applications.
