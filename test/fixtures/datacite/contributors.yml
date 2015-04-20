@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contributorName: MyString
+  contributorType: 
+  name_identifier_id: 1
+  resource_id: 1
+  affiliation_id: 1
+
+two:
+  contributorName: MyString
+  contributorType: 
+  name_identifier_id: 1
+  resource_id: 1
+  affiliation_id: 1
