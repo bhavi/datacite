@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420185111) do
+ActiveRecord::Schema.define(version: 20150421192139) do
 
   create_table "datacite_contributors", force: :cascade do |t|
     t.string   "contributorName"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150420185111) do
     t.integer  "affiliation_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "contributorType"
   end
 
   create_table "datacite_creators", force: :cascade do |t|
@@ -37,15 +38,6 @@ ActiveRecord::Schema.define(version: 20150420185111) do
     t.text     "schemeURI"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-  end
-
-  create_table "datacite_resources", force: :cascade do |t|
-    t.string   "identifier"
-    t.string   "identifierType"
-    t.string   "local_id"
-    t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
   end
 
 end
