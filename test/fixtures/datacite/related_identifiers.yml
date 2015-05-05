@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  relatedIdentifier: MyString
+  relatedIdentifierType_id: 1
+  relationType_id: 1
+  resource_id: 1
+
+two:
+  relatedIdentifier: MyString
+  relatedIdentifierType_id: 1
+  relationType_id: 1
+  resource_id: 1

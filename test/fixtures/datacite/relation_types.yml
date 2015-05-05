@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  relationType: MyString
+  relatedMetadataScheme: MyString
+  schemeURI: MyText
+  schemeType: MyString
+
+two:
+  relationType: MyString
+  relatedMetadataScheme: MyString
+  schemeURI: MyText
+  schemeType: MyString
