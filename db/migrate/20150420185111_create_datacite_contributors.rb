@@ -5,6 +5,7 @@ class CreateDataciteContributors < ActiveRecord::Migration
       t.integer :name_identifier_id
       t.integer :resource_id
       t.integer :affiliation_id
+      t.integer :contributorType
 
       t.timestamps null: false
     end
