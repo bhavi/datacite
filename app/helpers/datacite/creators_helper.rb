@@ -1,4 +1,4 @@
 module Datacite
-  module ResourcesHelper
+  module CreatorsHelper
   end
 end

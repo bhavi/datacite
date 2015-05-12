@@ -1,19 +1,17 @@
-<div class="field">
-  <%= f.label :contributor_name %><br>
-  <%= f.text_field :contributor_name %>
-</div>
-
-<div class="field">
-  <%= f.label :name_identifier_id %><br>
-  <%= f.text_field :name_identifier_id %>
-</div>
-
-<div class="field">
-  <%= f.label :affliation %><br>
-  <%= f.text_field :affiliation %>
-</div>
-
-<div class="field">
-  <%= f.label :resource_id %><br>
-  <%= f.text_field :resource_id %>
-</div>
+<%= simple_fields_for @contributor , :html => { :class => 'form-horizontal' },
+                wrapper: :horizontal_form,
+                wrapper_mappings: {
+                        check_boxes: :horizontal_radio_and_checkboxes,
+                        radio_buttons: :horizontal_radio_and_checkboxes,
+                        file: :horizontal_file_input,
+                        boolean: :horizontal_boolean
+                } do |contributor| %>
+  <%= render "datacite/shared/error_messages", target: @contributor %>
+  <div class="col-sm-9">
+    <%= contributor.input :contributorName, label: "Contributor" %>
+    <%#= contributor.input :contributorType %>
+    <%#= contributor.input :name_identifier_id %>
+    <%#= contributor.input :affiliation_id %>
+    <%= contributor.input :resource_id, :as => :hidden %>
+  </div>
+<% end %>

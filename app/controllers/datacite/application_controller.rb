@@ -1,4 +1,3 @@
-module Datacite
-  class Blorgh::ApplicationController < ApplicationController
-  end
+class Datacite::ApplicationController < ApplicationController
 end
+

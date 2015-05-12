@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Creators</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Creator</th>
+      <th>Name Identifier</th>
+      <th>Resource</th>
+      <th>Affliation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @creators.each do |creator| %>
+      <tr>
+        <td><%= creator.creatorName %></td>
+        <td><%= creator.name_identifier_id %></td>
+        <td><%= creator.resource_id %></td>
+        <td><%= creator.affliation_id %></td>
+        <td><%= link_to 'Show', creator, class: "btn btn-info"  %></td>
+        <td><%= link_to 'Edit', edit_creator_path(creator), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', creator, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'New creator', new_creator_path %>

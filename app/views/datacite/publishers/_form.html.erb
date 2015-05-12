@@ -1,9 +1,14 @@
-<div class="field">
-  <%= f.label :publisher %><br>
-  <%= f.text_field :publisher %>
+<%= simple_fields_for @publisher , :html => { :class => 'form-horizontal' },
+                wrapper: :horizontal_form,
+                wrapper_mappings: {
+                        check_boxes: :horizontal_radio_and_checkboxes,
+                        radio_buttons: :horizontal_radio_and_checkboxes,
+                        file: :horizontal_file_input,
+                        boolean: :horizontal_boolean
+                } do |publisher| %>
+<%= render "datacite/shared/error_messages", :target => @publisher %>
+<div class="col-sm-9">
+  <%= publisher.input :publisher %>
+  <%= publisher.input :resource_id, :as => :hidden %>
 </div>
-
-<div class="field">
-  <%= f.label :resource_id %><br>
-  <%= f.text_field :resource_id %>
-</div>
+<% end %>

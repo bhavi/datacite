@@ -5,9 +5,11 @@ module Datacite
     has_one :name_identifier
     before_save :set_resource
 
+    validates :contributorName, :resource_id, presence: true
+
     private
       def set_resource
-        self.resource = Datacite.resource_class.find(:resource_id)
+        self.resource = Datacite.resource_class.constantize.find(resource_id)
       end
   end
 end

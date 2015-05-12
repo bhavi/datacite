@@ -1,19 +1,28 @@
-<div class="field">
-  <%= f.label :creator_name %><br>
-  <%= f.text_field :creator_name %>
-</div>
-
-<div class="field">
-  <%= f.label :name_identifier_id %><br>
-  <%= f.text_field :name_identifier_id %>
-</div>
-
-<div class="field">
-  <%= f.label :affliation %><br>
-  <%= f.text_field :affiliation %>
-</div>
-
-<div class="field">
-  <%= f.label :resource_id %><br>
-  <%= f.text_field :resource_id %>
+<div class="container">
+<%= simple_form_for @creator, :html => { :class => 'form-horizontal' },
+                wrapper: :horizontal_form,
+                wrapper_mappings: {
+                        check_boxes: :horizontal_radio_and_checkboxes,
+                        radio_buttons: :horizontal_radio_and_checkboxes,
+                        file: :horizontal_file_input,
+                        boolean: :horizontal_boolean
+                } do |f| %>
+  <%= render "datacite/shared/error_messages", :target => @creator %>
+  <div class="form-group">
+    <h3>My Dataset</h3><br/>
+    <%= render "datacite/titles/form" %>
+    <div class="col-sm-9">
+      <%= f.input :creatorName, label:  "Creator" %>
+      <%#= f.input :name_identifier_id %>
+      <%#= f.input :affiliation_id %>
+      <%= f.input :resource_id, :as => :hidden %>
+    </div>
+    <%= render "datacite/contributors/form" %>
+    <%= render "datacite/subjects/form" %>
+    <%= render "datacite/descriptions/form" %>
+    <%= render "datacite/publishers/form" %>
+  </div>
+  <%= f.submit 'Submit', class: "btn btn-success" %>
+  <%= link_to 'Back', creators_path, class: "btn" %>
+<% end %>
 </div>
