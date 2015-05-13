@@ -6,10 +6,11 @@
                         file: :horizontal_file_input,
                         boolean: :horizontal_boolean
                 } do |title| %>
-<%= render "datacite/shared/error_messages", :target => @title %>
-<div class="col-sm-9">
-  <%= title.input :title %>
-  <%#= title.input :titleType %>
-  <%= title.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
-</div>
+  <%= render "datacite/shared/error_messages", :target => @title %>
+  <div class="col-sm-9">
+      <%= title.input :title %>
+      <%#= title.input :titleScheme %>
+      <%#= title.input :titleURI %>
+      <%= title.input :resource_id, input_html: { value: params[:resource_id] }%>
+  </div>
 <% end %>
