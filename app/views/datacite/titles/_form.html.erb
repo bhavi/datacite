@@ -11,6 +11,6 @@
       <%= title.input :title %>
       <%#= title.input :titleScheme %>
       <%#= title.input :titleURI %>
-      <%= title.input :resource_id, input_html: { value: params[:resource_id] }%>
+      <%= title.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
   </div>
 <% end %>

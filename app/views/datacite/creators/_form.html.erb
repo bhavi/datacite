@@ -15,7 +15,7 @@
       <%= f.input :creatorName, label:  "Creator" %>
       <%#= f.input :name_identifier_id %>
       <%#= f.input :affiliation_id %>
-      <%= f.input :resource_id, input_html: { value: params[:resource_id] } %>
+      <%= f.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
     </div>
     <%= render "datacite/contributors/form" %>
     <%= render "datacite/subjects/form" %>
