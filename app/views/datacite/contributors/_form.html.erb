@@ -12,6 +12,6 @@
     <%#= contributor.input :contributorType %>
     <%#= contributor.input :name_identifier_id %>
     <%#= contributor.input :affiliation_id %>
-    <%= contributor.input :resource_id, :as => :hidden %>
+    <%= contributor.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
   </div>
 <% end %>

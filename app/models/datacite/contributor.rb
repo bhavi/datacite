@@ -1,6 +1,5 @@
 module Datacite
   class Contributor < ActiveRecord::Base
-    attr_accessor :resource_id
     belongs_to :resource, class_name: Datacite.resource_class.to_s
     has_one :name_identifier
     before_save :set_resource

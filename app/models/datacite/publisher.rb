@@ -8,7 +8,7 @@ module Datacite
 
     private
       def set_resource
-      self.resource = Datacite.resource_class.find(:resource_id)
+      self.resource = Datacite.resource_class.constantize.find(:resource_id)
       end
   end
 end

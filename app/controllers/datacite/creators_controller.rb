@@ -25,6 +25,12 @@ module Datacite
 
     # GET /creators/1/edit
     def edit
+      @creator = Creator.new
+      @contributor = Contributor.new
+      @subject = Subject.new
+      @description = Description.new
+      @publisher = Publisher.new
+      @title = Title.new
     end
 
     # POST /creators
@@ -37,9 +43,7 @@ module Datacite
       @title = Title.new(title_params)
 
       # Run valid? on each model and check for failures
-      debugger
-      if @creator.valid? & @contributor.valid? & @subject.valid? & @description.valid?
-
+      if @creator.valid? & @contributor.valid? & @subject.valid? & @description.valid? & @publisher.valid? & @title.valid?
         Creator.transaction do
           @creator.save!
           @contributor.save!
@@ -47,7 +51,6 @@ module Datacite
           @description.save!
           @publisher.save!
           @title.save!
-          redirect_to @creator, notice: 'all successfully created.'
         end
       else
         render :new
