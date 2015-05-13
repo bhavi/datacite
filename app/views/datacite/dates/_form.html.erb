@@ -6,4 +6,5 @@
 <div class="field">
   <%= f.label :dateType %><br>
   <%= f.text_field :dateType %>
+  <%= f.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
 </div>

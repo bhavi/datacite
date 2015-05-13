@@ -9,6 +9,6 @@
 <%= render "datacite/shared/error_messages", :target => @publisher %>
 <div class="col-sm-9">
   <%= publisher.input :publisher %>
-  <%= publisher.input :resource_id, :as => :hidden %>
+  <%= publisher.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
 </div>
 <% end %>

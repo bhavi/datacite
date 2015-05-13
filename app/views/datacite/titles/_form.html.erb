@@ -10,6 +10,6 @@
 <div class="col-sm-9">
   <%= title.input :title %>
   <%#= title.input :titleType %>
-  <%= title.input :resource_id, :as => :hidden %>
+  <%= title.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
 </div>
 <% end %>

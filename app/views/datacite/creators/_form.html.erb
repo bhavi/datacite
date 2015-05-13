@@ -9,13 +9,13 @@
                 } do |f| %>
   <%= render "datacite/shared/error_messages", :target => @creator %>
   <div class="form-group">
-    <h3>My Dataset</h3><br/>
+    <h3>Describe your Data</h3><br/>
     <%= render "datacite/titles/form" %>
     <div class="col-sm-9">
       <%= f.input :creatorName, label:  "Creator" %>
       <%#= f.input :name_identifier_id %>
       <%#= f.input :affiliation_id %>
-      <%= f.input :resource_id, :as => :hidden %>
+      <%= f.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
     </div>
     <%= render "datacite/contributors/form" %>
     <%= render "datacite/subjects/form" %>
