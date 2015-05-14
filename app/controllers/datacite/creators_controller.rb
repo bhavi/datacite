@@ -3,6 +3,11 @@ require_dependency "datacite/application_controller"
 module Datacite
   class CreatorsController < ApplicationController
     before_action :set_creator, only: [:show, :edit, :update, :destroy]
+    before_action :set_contributor, only: [:show, :edit, :update, :destroy]
+    before_action :set_description, only: [:show, :edit, :update, :destroy]
+    before_action :set_subject, only: [:show, :edit, :update, :destroy]
+    before_action :set_publisher, only: [:show, :edit, :update, :destroy]
+    before_action :set_title, only: [:show, :edit, :update, :destroy]
 
     # GET /creators
     def index
@@ -25,12 +30,6 @@ module Datacite
 
     # GET /creators/1/edit
     def edit
-      @creator = Creator.new
-      @contributor = Contributor.new
-      @subject = Subject.new
-      @description = Description.new
-      @publisher = Publisher.new
-      @title = Title.new
     end
 
     # POST /creators
@@ -51,6 +50,7 @@ module Datacite
           @description.save!
           @publisher.save!
           @title.save!
+          redirect_to edit_creator_path(@creator), notice: 'Creator was successfully updated.'
         end
       else
         render :new
@@ -76,6 +76,31 @@ module Datacite
       # Use callbacks to share common setup or constraints between actions.
       def set_creator
         @creator = Creator.find(params[:id])
+      end
+
+      def set_contributor
+        resource_id = @creator.resource_id
+        @contributor = Contributor.where(resource_id: resource_id).first
+      end
+
+      def set_subject
+        resource_id = @creator.resource_id
+        @subject = Subject.where(resource_id: resource_id).first
+      end
+
+      def set_description
+        resource_id = @creator.resource_id
+        @description = Description.where(resource_id: resource_id).first
+      end
+
+      def set_publisher
+        resource_id = @creator.resource_id
+        @publisher = Publisher.where(resource_id: resource_id).first
+      end
+
+      def set_title
+        resource_id = @creator.resource_id
+        @title = Title.where(resource_id: resource_id).first
       end
 
       # Only allow a trusted parameter "white list" through.

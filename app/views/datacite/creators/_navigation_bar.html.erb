@@ -1,15 +1,13 @@
-Submission Steps
-
-<!-- describe metadata path -->
-  <%= link_to 'Describe', new_creator_path, class: "btn" %>
-
-<!-- describe metadata path -->
-  <%= link_to 'Describe', edit_creator_path(@creator), class: "btn" %>
-
-
-<!--   Upload path -->
-  <%= link_to 'Upload', '#', class: "btn" %>
-<!--   Store path -->
-  <%= link_to 'Store', '#', class: "btn" %>
-<!--   Submission path -->
-  <%= link_to 'Submission', '#', class: "btn" %>
+<nav class="nav-sidebar">
+  <ul class="nav tabs">
+    <b>Submission Steps</b>
+  <!-- describe metadata path -->
+      <li class="active"><a href="#tab1" data-toggle="tab"><%= link_to 'Describe', '#' %></a></li>
+  <!--   Upload path -->
+      <li class=""><a href="#tab2" data-toggle="tab">Upload</a></li>
+  <!--   Store path -->
+      <li class=""><a href="#tab3" data-toggle="tab">Store</a></li>
+  <!--   Submission path -->
+      <li class=""><a href="#tab3" data-toggle="tab">Submission</a></li>
+  </ul>
+</nav>

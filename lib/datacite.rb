@@ -1,4 +1,5 @@
 require "datacite/engine"
+require "simple_form"
 
 module Datacite
   mattr_accessor :resource_class
