@@ -38,7 +38,7 @@ module Datacite
       @publication_year = PublicationYear.new(publication_year_params)
 
       # Run valid? on each model and check for failures
-      if @creator.valid? & @contributor.valid? & @subject.valid? & @description.valid? & @publisher.valid? & @title.valid? & publication_year.valid?
+      if @creator.valid? & @contributor.valid? & @subject.valid? & @description.valid? & @publisher.valid? & @title.valid? & @publication_year.valid?
         Creator.transaction do
           @creator.save!
           @contributor.save!
@@ -66,7 +66,7 @@ module Datacite
       @publication_year.update(publication_year_params)
 
       # Run valid? on each model and check for failures
-      if @creator.valid? & @contributor.valid? & @subject.valid? & @description.valid? & @publisher.valid? & @title.valid?
+      if @creator.valid? & @contributor.valid? & @subject.valid? & @description.valid? & @publisher.valid? & @title.valid? & @publication_year.valid?
         @creator.transaction do
           @creator.save!
           @contributor.save!
