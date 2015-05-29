@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512165901) do
+ActiveRecord::Schema.define(version: 20150528173533) do
 
   create_table "datacite_contributors", force: :cascade do |t|
     t.string   "contributorName"
     t.integer  "name_identifier_id"
     t.integer  "resource_id"
     t.integer  "affiliation_id"
+    t.integer  "contributorType"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "contributorType"
   end
 
   create_table "datacite_creators", force: :cascade do |t|
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(version: 20150512165901) do
     t.text     "schemeURI"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+  end
+
+  create_table "datacite_publication_years", force: :cascade do |t|
+    t.string   "publicationYear"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "datacite_publishers", force: :cascade do |t|

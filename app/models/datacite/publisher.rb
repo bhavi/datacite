@@ -1,6 +1,6 @@
 module Datacite
   class Publisher < ActiveRecord::Base
-    belongs_to :resource, class_name: Datacite.resource_class.to_s
+    belongs_to :resource, class_name: Datacite.resource_class.to_s, foreign_key: "resource_id"
 
     #before_save :set_resource
 

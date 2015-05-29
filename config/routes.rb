@@ -1,5 +1,10 @@
 Datacite::Engine.routes.draw do
 
-  resources :creators
-
+  get   'generals/index', to: 'generals#index'
+  get   'generals/new', to: 'generals#new'
+  post  'generals/create', to: 'generals#create'
+  get   'generals/edit', to: 'generals#edit'
+  put   'generals/update', to: 'generals#update'
+  get   'generals/upload', to: 'generals#upload'
+  get   'generals/summary', to: 'generals#summary'
 end
