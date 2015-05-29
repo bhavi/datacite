@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="col-sm-2 pull-left">
+    <%= render "datacite/generals/navigation_bar" %>
+  </div>
+  <div class="col-sm-10">
+    <%= simple_form_for :general, url: generals_update_path, method: :put, html: { class: 'form-horizontal' },
+                  wrapper: :horizontal_form,
+                  wrapper_mappings: {
+                          check_boxes: :horizontal_radio_and_checkboxes,
+                          radio_buttons: :horizontal_radio_and_checkboxes,
+                          file: :horizontal_file_input,
+                          boolean: :horizontal_boolean
+                    } do |f| %>
+
+      <%= f.hidden_field :resource_id, value: params[:resource_id] %>
+
+      <div class="form-group">
+      <%= render "datacite/titles/form" %>
+      <%= render "datacite/creators/form" %>
+      <%= render "datacite/contributors/form" %>
+      <%= render "datacite/subjects/form" %>
+      <%= render "datacite/descriptions/form" %>
+      <%= render "datacite/publishers/form" %>
+      <%= render "datacite/publication_years/form" %>
+      </div>
+      <%= f.submit 'Submit', class: "btn btn-success" %>
+      <%= link_to 'Back', generals_index_path, class: "btn" %>
+    <% end %>
+  </div>
+</div>
+<%#= link_to 'Back', main_app.edit_resource_path(params[:resource_id]), class: "btn" %>

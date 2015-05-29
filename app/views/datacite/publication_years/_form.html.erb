@@ -1,0 +1,14 @@
+<%= simple_fields_for @publication_year , :html => { :class => 'form-horizontal' },
+                wrapper: :horizontal_form,
+                wrapper_mappings: {
+                        check_boxes: :horizontal_radio_and_checkboxes,
+                        radio_buttons: :horizontal_radio_and_checkboxes,
+                        file: :horizontal_file_input,
+                        boolean: :horizontal_boolean
+                } do |publication_year| %>
+<%= render "datacite/shared/error_messages", :target => @publication_year %>
+<div class="col-sm-9">
+  <%= publication_year.input :publicationYear %>
+  <%= publication_year.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
+</div>
+<% end %>
