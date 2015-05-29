@@ -96,13 +96,13 @@ module Datacite
 
       def set_instances
         @resource = Resource.find(params[:resource_id].to_i) unless params[:resource_id].blank?
-        @creator = Creator.where(resource_id: @resource.id).first
-        @contributor = Contributor.where(resource_id: @resource.id).first
-        @subject = Subject.where(resource_id: @resource.id).first
-        @description = Description.where(resource_id: @resource.id).first
-        @publisher = Publisher.where(resource_id: @resource.id).first
-        @title = Title.where(resource_id: @resource.id).first
-        @publication_year = PublicationYear.find_or_create_by(resource_id: @resource.id).first
+        @creator = Creator.where(resource_id: @resource.id).first_or_initialize
+        @contributor = Contributor.where(resource_id: @resource.id).first_or_initialize
+        @subject = Subject.where(resource_id: @resource.id).first_or_initialize
+        @description = Description.where(resource_id: @resource.id).first_or_initialize
+        @publisher = Publisher.where(resource_id: @resource.id).first_or_initialize
+        @title = Title.where(resource_id: @resource.id).first_or_initialize
+        @publication_year = PublicationYear.where(resource_id: @resource.id).first_or_initialize
       end
 
       def generals_params
