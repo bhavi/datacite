@@ -16,7 +16,8 @@
         <td><%= title(resource) %></td>
         <td><%= publisher(resource) %></td>
         <td><%= publication_year(resource) %></td>
-        <td><%= link_to 'Edit', generals_edit_path(resource_id: resource.id), class: "btn btn-info" %></td>
+        <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i> Edit'.html_safe, generals_edit_path(resource_id: resource.id), class: "btn" %></td>
+        <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, '#', class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
