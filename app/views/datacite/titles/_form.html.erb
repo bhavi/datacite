@@ -1,4 +1,4 @@
-<%= simple_fields_for @title , :html => { :class => 'form-horizontal' },
+<%= fields_for @title , :html => { :class => 'form-horizontal center' },
                 wrapper: :horizontal_form,
                 wrapper_mappings: {
                         check_boxes: :horizontal_radio_and_checkboxes,
@@ -7,10 +7,13 @@
                         boolean: :horizontal_boolean
                 } do |title| %>
   <%= render "datacite/shared/error_messages", :target => @title %>
-  <div class="col-sm-9">
-      <%= title.input :title %>
-      <%#= title.input :titleScheme %>
-      <%#= title.input :titleURI %>
-      <%= title.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
+  <div class="form-group">
+    <%= title.label :title, "Title:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= title.text_field :title , class: "form-control" %>
+    </div>
   </div>
+    <%#= title.input :titleScheme %>
+    <%#= title.input :titleURI %>
+  <%= title.hidden_field :resource_id, value: params[:resource_id] %>
 <% end %>

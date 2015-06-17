@@ -1,17 +1,20 @@
-<%= simple_fields_for @contributor , :html => { :class => 'form-horizontal' },
-                wrapper: :horizontal_form,
-                wrapper_mappings: {
-                        check_boxes: :horizontal_radio_and_checkboxes,
-                        radio_buttons: :horizontal_radio_and_checkboxes,
-                        file: :horizontal_file_input,
-                        boolean: :horizontal_boolean
-                } do |contributor| %>
+<%= fields_for @contributor , :html => { :class => 'form-horizontal' },
+				wrapper: :horizontal_form,
+				wrapper_mappings: {
+						check_boxes: :horizontal_radio_and_checkboxes,
+						radio_buttons: :horizontal_radio_and_checkboxes,
+						file: :horizontal_file_input,
+						boolean: :horizontal_boolean
+				} do |contributor| %>
   <%= render "datacite/shared/error_messages", target: @contributor %>
-  <div class="col-sm-9">
-    <%= contributor.input :contributorName, label: "Contributor" %>
-    <%#= contributor.input :contributorType %>
-    <%#= contributor.input :name_identifier_id %>
-    <%#= contributor.input :affiliation_id %>
-    <%= contributor.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
-  </div>
+  <div class="form-group">
+		<%= contributor.label :contributorName, "Contributor:", class: "col-md-4 control-label" %>
+		<div class="col-md-8">
+			<%= contributor.text_field :contributorName, class: "form-control" %>
+		</div>
+	</div>
+	<%#= contributor.input :contributorType %>
+	<%#= contributor.input :name_identifier_id %>
+	<%#= contributor.input :affiliation_id %>
+	<%= contributor.hidden_field:resource_id, value: params[:resource_id] %>
 <% end %>

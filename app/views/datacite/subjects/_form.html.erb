@@ -1,4 +1,4 @@
-<%= simple_fields_for @subject , :html => { :class => 'form-horizontal' },
+<%= fields_for @subject , :html => { :class => 'form-horizontal' },
                 wrapper: :horizontal_form,
                 wrapper_mappings: {
                         check_boxes: :horizontal_radio_and_checkboxes,
@@ -7,10 +7,13 @@
                         boolean: :horizontal_boolean
                 } do |subject| %>
   <%= render "datacite/shared/error_messages", :target => @subject %>
-  <div class="col-sm-9">
-      <%= subject.input :subject %>
+  <div class="form-group">
+    <%= subject.label :creatorName, "Subject:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= subject.text_field :subject, class: "form-control" %>
       <%#= subject.input :subjectScheme %>
       <%#= subject.input :subjectURI %>
-      <%= subject.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
+    </div>
   </div>
+    <%= subject.hidden_field :resource_id, value: params[:resource_id] %>
 <% end %>

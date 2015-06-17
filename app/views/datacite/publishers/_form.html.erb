@@ -1,4 +1,4 @@
-<%= simple_fields_for @publisher , :html => { :class => 'form-horizontal' },
+<%= fields_for @publisher , :html => { :class => 'form-horizontal' },
                 wrapper: :horizontal_form,
                 wrapper_mappings: {
                         check_boxes: :horizontal_radio_and_checkboxes,
@@ -7,8 +7,11 @@
                         boolean: :horizontal_boolean
                 } do |publisher| %>
 <%= render "datacite/shared/error_messages", :target => @publisher %>
-<div class="col-sm-9">
-  <%= publisher.input :publisher %>
-  <%= publisher.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
+<div class="form-group">
+  <%= publisher.label :creatorName, "Publisher:", class: "col-md-4 control-label" %>
+  <div class="col-md-8">
+    <%= publisher.text_field :publisher, class: "form-control" %>
+  </div>
 </div>
+  <%= publisher.hidden_field :resource_id, value: params[:resource_id] %>
 <% end %>

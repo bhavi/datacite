@@ -1,4 +1,4 @@
-<%= simple_fields_for @description , :html => { :class => 'form-horizontal' },
+<%= fields_for @description , :html => { :class => 'form-horizontal' },
                 wrapper: :horizontal_form,
                 wrapper_mappings: {
                         check_boxes: :horizontal_radio_and_checkboxes,
@@ -7,9 +7,12 @@
                         boolean: :horizontal_boolean
                 } do |description| %>
 <%= render "datacite/shared/error_messages", :target => @description %>
-<div class="col-sm-9">
-  <%= description.input :description %>
-  <%#= description.input :descriptionType %>
-  <%= description.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
+<div class="form-group">
+  <%= description.label :creatorName, "Description:", class: "col-md-4 control-label" %>
+  <div class="col-md-8">
+    <%= description.text_field :description, class: "form-control" %>
+  </div>
 </div>
+  <%#= description.input :descriptionType %>
+  <%= description.hidden_field :resource_id, value: params[:resource_id] %>
 <% end %>

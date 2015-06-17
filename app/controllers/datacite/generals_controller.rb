@@ -5,7 +5,7 @@ module Datacite
 
     # GET /generals
     def index
-      @resources = Resource.all
+      @resources = Datacite.resource_class.all
     end
 
     def show
@@ -28,7 +28,7 @@ module Datacite
 
     # POST /generals/create
     def create
-      @resource = Resource.find(generals_params[:resource_id].to_i)
+      @resource = Datacite.resource_class.find(generals_params[:resource_id].to_i)
       @creator = Creator.new(creator_params)
       @contributor = Contributor.new(contributor_params)
       @subject = Subject.new(subject_params)

@@ -1,4 +1,4 @@
-<%= simple_fields_for @date , :html => { :class => 'form-horizontal' },
+<%= fields_for @date , :html => { :class => 'form-horizontal' },
                 wrapper: :horizontal_form,
                 wrapper_mappings: {
                         check_boxes: :horizontal_radio_and_checkboxes,
@@ -7,9 +7,12 @@
                         boolean: :horizontal_boolean
                 } do |date| %>
 <%= render "datacite/shared/error_messages", :target => @date %>
-<div class="col-sm-9">
-  <%= date.input :date %>
-  <%#= date.input :dateType %>
-  <%= date.input :resource_id, input_html: { value: params[:resource_id] } %>
+<div class="form-group">
+  <%= date.label :creatorName, "Date:", class: "col-md-4 control-label" %>
+  <div class="col-md-8">
+    <%= date.date_field :date, class: "form-control" %>
+  </div>
 </div>
+  <%#= date.input :dateType %>
+  <%= date.hidden_field :resource_id, value: params[:resource_id] %>
 <% end %>

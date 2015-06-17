@@ -1,4 +1,4 @@
-<%= simple_fields_for @creator , :html => { :class => 'form-horizontal' },
+<%= fields_for @creator , :html => { :class => 'form-horizontal' },
                 wrapper: :horizontal_form,
                 wrapper_mappings: {
                         check_boxes: :horizontal_radio_and_checkboxes,
@@ -7,10 +7,13 @@
                         boolean: :horizontal_boolean
                 } do |creator| %>
   <%= render "datacite/shared/error_messages", target: @creator %>
-  <div class="col-sm-9">
-    <%= creator.input :creatorName, label: "Contributor" %>
+  <div class="form-group">
+    <%= creator.label :creatorName, "Creator:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= creator.text_field :creatorName, class: "form-control" %>
+    </div>
+  </div>
     <%#= creator.input :name_identifier_id %>
     <%#= creator.input :affiliation_id %>
-    <%= creator.input :resource_id, input_html: { value: params[:resource_id] }, as: :hidden %>
-  </div>
+    <%= creator.hidden_field :resource_id, value: params[:resource_id] %>
 <% end %>
