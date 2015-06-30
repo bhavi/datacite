@@ -57,7 +57,7 @@ module Datacite
     end
 
     def update
-      @resource = Resource.find(generals_params[:resource_id].to_i)
+      @resource = Datacite.resource_class.find(generals_params[:resource_id].to_i)
       set_instances
       @creator.update(creator_params)
       @contributor.update(contributor_params)
