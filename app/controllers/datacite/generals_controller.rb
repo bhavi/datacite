@@ -77,7 +77,7 @@ module Datacite
           @publisher.save!
           @title.save!
           @publication_year.save!
-          redirect_to main_app.file_uploads_path(resource_id: @resource.id), notice: 'Matadata was successfully updated.'
+          redirect_to generals_edit_path(resource_id: @resource.id) , notice: 'Matadata was successfully updated.'
         end
       else
         render :edit
