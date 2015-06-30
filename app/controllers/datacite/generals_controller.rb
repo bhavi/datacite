@@ -13,6 +13,7 @@ module Datacite
 
     # GET /generals/new
     def new
+      @resources = Datacite.resource_class.all
       @creator = Creator.new
       @contributor = Contributor.new
       @subject = Subject.new
@@ -23,6 +24,7 @@ module Datacite
     end
 
     def edit
+      @resources = Datacite.resource_class.all
       set_instances
     end
 
@@ -95,7 +97,7 @@ module Datacite
       # Only allow a trusted parameter "white list" through.
 
       def set_instances
-        @resource = Resource.find(params[:resource_id].to_i) unless params[:resource_id].blank?
+        @resource = Datacite.resource_class.find(params[:resource_id].to_i) unless params[:resource_id].blank?
         @creator = Creator.where(resource_id: @resource.id).first_or_initialize
         @contributor = Contributor.where(resource_id: @resource.id).first_or_initialize
         @subject = Subject.where(resource_id: @resource.id).first_or_initialize
