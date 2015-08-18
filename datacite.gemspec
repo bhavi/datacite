@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Datacite::VERSION
   s.authors     = ["bhavi.vedula"]
   s.email       = ["bhavi13may@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Datacite."
-  s.description = "TODO: Description of Datacite."
+  s.homepage    = "https://github.com/bhavi/datacite_engine"
+  s.summary     = "Summary of Datacite."
+  s.description = "Description of Datacite."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
